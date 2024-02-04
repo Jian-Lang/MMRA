@@ -308,27 +308,46 @@ def main(args):
 
 if __name__ == '__main__':
 
-    args_ = argparse.Namespace(
-        seed='2024',
-        device='cuda:0',
-        metric='MSE',
-        save='train_results',
-        epochs=200,
-        batch_size=64,
-        early_stop_turns=10,
-        loss='MSE',
-        optim='Adam',
-        lr=1e-4,
-        dataset_id='MicroLens-100k',
-        dataset_path='data',
-        model_id='Ours',
-        feature_num=2,
-        num_of_retrieved_items=10,
-        feature_dim=768,
-        label_dim=1,
-        drop=0.2,
-        alpha=0.6,
-        frame_num=10,
-    )
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument('--seed', type=str, default='2024', help='Seed for reproducibility')
+
+    parser.add_argument('--device', type=str, default='cuda:0', help='Device for training')
+
+    parser.add_argument('--metric', type=str, default='MSE', help='Metric for evaluation')
+
+    parser.add_argument('--save', type=str, default='train_results', help='Directory to save results')
+
+    parser.add_argument('--epochs', type=int, default=100, help='Number of training epochs')
+
+    parser.add_argument('--batch_size', type=int, default=64, help='Batch size for training')
+
+    parser.add_argument('--early_stop_turns', type=int, default=20, help='Number of turns for early stopping')
+
+    parser.add_argument('--loss', type=str, default='MSE', help='Loss function for training')
+
+    parser.add_argument('--optim', type=str, default='Adam', help='Optimizer for training')
+
+    parser.add_argument('--lr', type=float, default=1e-4, help='Learning rate')
+
+    parser.add_argument('--dataset_id', type=str, default='MicroLens-100k', help='Dataset identifier')
+
+    parser.add_argument('--dataset_path', type=str, default='data', help='Path to the dataset')
+
+    parser.add_argument('--model_id', type=str, default='MMRA', help='Model id')
+
+    parser.add_argument('--feature_num', type=int, default=2, help='Number of features')
+
+    parser.add_argument('--num_of_retrieved_items', type=int, default=10, help='Number of retrieved items, hyper-parameter')
+
+    parser.add_argument('--feature_dim', type=int, default=768, help='Dimension of features')
+
+    parser.add_argument('--label_dim', type=int, default=1, help='Dimension of labels')
+
+    parser.add_argument('--alpha', type=float, default=0.6, help='Alpha, hyper-parameter')
+
+    parser.add_argument('--frame_num', type=int, default=10, help='Number of frames, hyper-parameter')
+
+    args_ = parser.parse_args()
 
     main(args_)

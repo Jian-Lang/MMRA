@@ -184,7 +184,14 @@ def test(args):
     delete_special_tokens(f"{father_folder_name}/{folder_name}/log.txt")
 
 
-def main():
+def main(args):
+
+    seed_init(args.seed)
+
+    test(args)
+
+
+if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
 
@@ -202,26 +209,24 @@ def main():
 
     parser.add_argument('--dataset_path', default='data', type=str, help='path of dataset folder')
 
-    parser.add_argument('--model_id', default='Ours-no-rag', type=str, help='id of model')
+    parser.add_argument('--model_id', default='MMRA', type=str, help='id of model')
 
-    parser.add_argument('--num_of_retrieved_items', default=10, type=int,
-                        help='number of retrieved items used this training')
+    parser.add_argument('--num_of_retrieved_items', default=10, type=int, help='number of retrieved items used this training, hyper-parameter')
 
-    parser.add_argument('--alpha', default=6, type=int, help='weight of negative attention')
+    parser.add_argument('--alpha', default=0.6, type=int, help='Alpha, hyper-parameter')
 
-    parser.add_argument('--frame_num', default=10, type=int, help='frame number of each video')
+    parser.add_argument('--frame_num', default=10, type=int, help='frame number of each video, hyper-parameter')
+
+    parser.add_argument('--feature_num', type=int, default=2, help='Number of features')
+
+    parser.add_argument('--feature_dim', type=int, default=768, help='Dimension of features')
+
+    parser.add_argument('--label_dim', type=int, default=1, help='Dimension of labels')
 
     parser.add_argument('--model_path',
-                        default=r'D:\MultiModalPopularityPrediction\train_results\train_Ours_MicroLens-100k_MSE_2024-01-30_19-10-32\trained_model\model_2.pth',
+                        default=r'',
                         type=str, help='path of trained model')
 
     args = parser.parse_args()
 
-    seed_init(args.seed)
-
-    test(args)
-
-
-if __name__ == "__main__":
-
-    main()
+    main(args)

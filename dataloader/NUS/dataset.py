@@ -9,7 +9,7 @@ def custom_collate_fn(batch, num_of_retrieved_items, num_of_frames):
         retrieved_textual_feature_embedding, retrieved_label, label, item_id = zip(*batch)
 
     return (torch.tensor(visual_feature_embedding, dtype=torch.float))[:, :num_of_frames], torch.tensor(
-        textual_feature_embedding,dtype=torch.float), \
+        textual_feature_embedding,dtype=torch.float).unsqueeze(1), \
         (torch.tensor(similarity))[:, :num_of_retrieved_items], \
         (torch.tensor(retrieved_visual_feature_embedding, dtype=torch.float))[:, :num_of_retrieved_items, :num_of_frames, :], \
         (torch.tensor(retrieved_textual_feature_embedding, dtype=torch.float))[:, :num_of_retrieved_items, :], \
