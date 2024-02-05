@@ -48,7 +48,7 @@ class Model(nn.Module):
 
         self.retrieval_uni_modal_linear_2 = nn.Linear(feature_dim, 1)
 
-        self.predict_linear_1 = nn.Linear(feature_dim * 5, 200)
+        self.predict_linear_1 = nn.Linear(feature_dim * 8, 200)
 
         self.predict_linear_2 = nn.Linear(200, 1)
 
@@ -198,7 +198,19 @@ class Model(nn.Module):
 
         retrieved_aggregated_label_embedding = self.relu(retrieved_aggregated_label_embedding)
 
-        output = self.predict_linear_1(torch.cat([T_f_star,V_f_star,T_f_star_, V_f_star_,retrieved_aggregated_label_embedding], dim=2))
+        r_v_v = torch.mul(V_f_star, V_f_star_)
+
+        r_v_t = torch.mul(V_f_star, T_f_star_)
+
+        r_v_l = torch.mul(V_f_star, retrieved_aggregated_label_embedding)
+
+        r_t_l = torch.mul(T_f_star, retrieved_aggregated_label_embedding)
+
+        r_t_v = torch.mul(T_f_star, V_f_star_)
+
+        r_t_t = torch.mul(T_f_star, T_f_star_)
+
+        output = self.predict_linear_1(torch.cat([T_f_star, V_f_star, r_v_v, r_v_t, r_t_v, r_t_t, r_v_l, r_t_l], dim=2))
 
         output = self.relu(output)
 
@@ -223,7 +235,7 @@ if __name__ == "__main__":
 
     visual_feature = torch.randn(batch_size, frame_num, feature_size)
 
-    text_feature = torch.randn(batch_size, feature_size)
+    text_feature = torch.randn(batch_size, 5,feature_size)
 
     retrieved_visual_feature = torch.randn(batch_size, num_retrieved_videos, frame_num, feature_size)
 

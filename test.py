@@ -11,6 +11,7 @@ from dataloader.MicroLens100k.dataset import MyData, custom_collate_fn
 import random
 import numpy as np
 from scipy.stats import spearmanr
+from model.MicroLens100k.MMRA import Model
 
 BLUE = '\033[94m'
 ENDC = '\033[0m'
