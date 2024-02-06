@@ -128,25 +128,3 @@ MMRA
 ├── test.py  # entry for model test
 └── README.md  # This file
 ```
-
-
-
-## LLM
-
-In our work, we have employed the following open source LLMs:
-
-### BLIP 
-
-link to visit: https://huggingface.co/Salesforce/blip-image-captioning-large
-
-### UAE-Large-V1 
-
-link to visit: https://huggingface.co/WhereIsAI/UAE-Large-V1
-
-### AngIE
-
-link to visit: https://huggingface.co/SeanLee97/angle-bert-base-uncased-nli-en-v1
-
-### ViT
-
-link to visit: https://huggingface.co/google/vit-base-patch16-224-in21k

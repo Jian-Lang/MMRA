@@ -48,9 +48,11 @@ class Model(nn.Module):
 
         self.retrieval_uni_modal_linear_2 = nn.Linear(feature_dim, 1)
 
-        self.predict_linear_1 = nn.Linear(feature_dim * 8, 200)
+        self.predict_linear_1 = nn.Linear(feature_dim * 10, 800)
 
-        self.predict_linear_2 = nn.Linear(200, 1)
+        self.predict_linear_2 = nn.Linear(800, 200)
+
+        self.predict_linear_3 = nn.Linear(200, 1)
 
         self.relu = nn.ReLU()
 
@@ -210,11 +212,15 @@ class Model(nn.Module):
 
         r_t_t = torch.mul(T_f_star, T_f_star_)
 
-        output = self.predict_linear_1(torch.cat([T_f_star,V_f_star,r_v_v,r_v_t,r_t_v,r_t_t,r_v_l,r_t_l], dim=2))
+        output = self.predict_linear_1(torch.cat([T_f_star,V_f_star,T_f_star_,V_f_star_,r_v_v,r_v_t,r_t_v,r_t_t,r_v_l,r_t_l], dim=2))
 
         output = self.relu(output)
 
         output = self.predict_linear_2(output)
+
+        output = self.relu(output)
+
+        output = self.predict_linear_3(output)
 
         output = output.squeeze(2)
 
