@@ -106,9 +106,13 @@ MMRA
 │   ├── MFTM 
 │   ├── SVR 
 │   └── TMALL 
-├── data  # source code of data-preprocessing
+├── data  # source code of data-preprocessing and retrieval preprocessing
 │   ├── MicroLens-100k
+│	│	 ├── data_preprocess
+│	│	 ├── retrieval_preprocess
 │   └── NUS
+│		 ├──data_preprocess
+│		 └──retrieval_preprocess
 ├── dataloader  # dataloader for training, validation and test
 │   ├── MicroLens
 │	│	 ├── dataset.py 
