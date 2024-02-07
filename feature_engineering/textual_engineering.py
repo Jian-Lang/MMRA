@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
     angle = load_angle_bert_model()
 
-    data_path = r'D:\MultiModalPopularityPrediction\data\vine\data.pkl'
+    data_path = r'D:\MultiModalPopularityPrediction\data\NUS\data.pkl'
 
     df = pd.read_pickle(data_path)
 

@@ -1,13 +1,13 @@
 import pandas as pd
 from tqdm import tqdm
 
-df_train = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\vine\train.pkl')
+df_train = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\NUS\train.pkl')
 
-df_test = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\vine\test.pkl')
+df_test = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\NUS\test.pkl')
 
-df_valid = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\vine\valid.pkl')
+df_valid = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\NUS\valid.pkl')
 
-df_img_feature = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\vine\vine_image.pkl')
+df_img_feature = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\NUS\NUS_image.pkl')
 
 visual_feature_embedding_cls_list = []
 
@@ -43,7 +43,7 @@ df_train['visual_feature_embedding_cls'] = visual_feature_embedding_cls_list
 
 df_train['visual_feature_embedding_mean'] = visual_feature_embedding_mean_list
 
-df_train.to_pickle(r'D:\MultiModalPopularityPrediction\data\vine\train.pkl')
+df_train.to_pickle(r'D:\MultiModalPopularityPrediction\data\NUS\train.pkl')
 
 visual_feature_embedding_cls_list = []
 
@@ -79,7 +79,7 @@ df_test['visual_feature_embedding_cls'] = visual_feature_embedding_cls_list
 
 df_test['visual_feature_embedding_mean'] = visual_feature_embedding_mean_list
 
-df_test.to_pickle(r'D:\MultiModalPopularityPrediction\data\vine\test.pkl')
+df_test.to_pickle(r'D:\MultiModalPopularityPrediction\data\NUS\test.pkl')
 
 visual_feature_embedding_cls_list = []
 
@@ -115,4 +115,4 @@ df_valid['visual_feature_embedding_cls'] = visual_feature_embedding_cls_list
 
 df_valid['visual_feature_embedding_mean'] = visual_feature_embedding_mean_list
 
-df_valid.to_pickle(r'D:\MultiModalPopularityPrediction\data\vine\valid.pkl')
+df_valid.to_pickle(r'D:\MultiModalPopularityPrediction\data\NUS\valid.pkl')

@@ -7,7 +7,7 @@ import torch
 
 from dataset_test import MyData, custom_collate_fn
 
-test_data = MyData(r'D:\MultiModalPopularityPrediction\data\tmall_vine\test.pkl')
+test_data = MyData(r'D:\MultiModalPopularityPrediction\data\tmall_NUS\test.pkl')
 
 test_loader = torch.utils.data.DataLoader(test_data, batch_size=64, collate_fn=custom_collate_fn)
 

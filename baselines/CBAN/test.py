@@ -166,7 +166,7 @@ def main():
 
     parser.add_argument('--batch_size', default=256, type=int, help='training batch size')
 
-    parser.add_argument('--dataset_id', default='baselines_data_vine', type=str, help='id of dataset')
+    parser.add_argument('--dataset_id', default='baselines_data_NUS', type=str, help='id of dataset')
 
     parser.add_argument('--dataset_path', default=r'D:\MultiModalPopularityPrediction\data', type=str,
                         help='path of dataset folder')
@@ -174,7 +174,7 @@ def main():
     parser.add_argument('--model_id', default='CBAN', type=str, help='id of model')
 
     parser.add_argument('--model_path',
-                        default=r'D:\MultiModalPopularityPrediction\baselines\CBAN-Add\train_results\train_CBAN-Add_baselines_data_vine_MSE_2024-01-22_10-11-31\trained_model\model_6.pth',
+                        default=r'D:\MultiModalPopularityPrediction\baselines\CBAN-Add\train_results\train_CBAN-Add_baselines_data_NUS_MSE_2024-01-22_10-11-31\trained_model\model_6.pth',
                         type=str, help='path of trained model')
 
     args = parser.parse_args()

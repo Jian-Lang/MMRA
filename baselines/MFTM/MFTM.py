@@ -7,11 +7,11 @@ from pytorch_tabnet.tab_model import TabNetRegressor
 
 
 def main(alpha_lgbm, alpha_tabnet):
-    train_data = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\baselines_data_vine\train.pkl')
+    train_data = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\baselines_data_NUS\train.pkl')
 
-    valid_data = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\baselines_data_vine\valid.pkl')
+    valid_data = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\baselines_data_NUS\valid.pkl')
 
-    test_data = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\baselines_data_vine\test.pkl')
+    test_data = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\baselines_data_NUS\test.pkl')
 
     visual_feature_train = np.array(train_data['visual_feature_embedding_cls'].tolist())
 

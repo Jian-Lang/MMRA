@@ -15,7 +15,7 @@ def extract_frames(input_video, input_video_id, k):
 
     samples = [int(i) for i in samples]
 
-    output_folder = r'D:\MultiModalPopularityPrediction\data\vine\video_frames'
+    output_folder = r'D:\MultiModalPopularityPrediction\data\NUS\video_frames'
 
     os.makedirs(output_folder, exist_ok=True)
 
@@ -56,7 +56,7 @@ if __name__ == '__main__':
 
     video_id = [f"{i}.mp4" for i in video_id]
 
-    path = r'D:\MultiModalPopularityPrediction\data\vine\vine_video\video'
+    path = r'D:\MultiModalPopularityPrediction\data\NUS\NUS_video\video'
 
     files = os.listdir(path)
 

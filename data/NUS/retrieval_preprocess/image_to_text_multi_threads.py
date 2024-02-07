@@ -48,7 +48,7 @@ def process_row(item_id, path, processor, model):
 
 if __name__ == "__main__":
 
-    df = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\vine\data.pkl')
+    df = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\NUS\data.pkl')
 
     processor, model = loading_model()
 
@@ -76,4 +76,4 @@ if __name__ == "__main__":
 
     df['image_to_text_list'] = image_to_text_list
 
-    df.to_pickle(r'D:\MultiModalPopularityPrediction\data\vine\data.pkl')
+    df.to_pickle(r'D:\MultiModalPopularityPrediction\data\NUS\data.pkl')

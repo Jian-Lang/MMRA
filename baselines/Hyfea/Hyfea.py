@@ -4,11 +4,11 @@ from sklearn.metrics import mean_absolute_error
 from scipy.stats import spearmanr
 import pandas as pd
 
-train_data = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\baselines_data_vine\train.pkl')
+train_data = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\baselines_data_NUS\train.pkl')
 
-valid_data = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\baselines_data_vine\valid.pkl')
+valid_data = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\baselines_data_NUS\valid.pkl')
 
-test_data = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\baselines_data_vine\test.pkl')
+test_data = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\baselines_data_NUS\test.pkl')
 
 visual_feature_train = np.array(train_data['visual_feature_embedding_cls'].tolist())
 

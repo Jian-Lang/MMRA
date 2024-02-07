@@ -39,7 +39,7 @@ if __name__ == '__main__':
 
     visual_feature_embedding_mean = []
 
-    frames_path = r'D:\MultiModalPopularityPredictionData\vine\video_frames'
+    frames_path = r'D:\MultiModalPopularityPredictionData\NUS\video_frames'
 
     files = os.listdir(frames_path)
 
@@ -60,4 +60,4 @@ if __name__ == '__main__':
 
     df['visual_feature_embedding_mean'] = visual_feature_embedding_mean
 
-    df.to_pickle(r'vine_image.pkl')
+    df.to_pickle(r'NUS_image.pkl')

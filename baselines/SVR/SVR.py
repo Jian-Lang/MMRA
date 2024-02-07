@@ -47,6 +47,6 @@ def main(train_path, test_path, dataset_id):
 
 
 if __name__ == "__main__":
-    main(train_path=r'D:\MultiModalPopularityPrediction\data\baselines_data_vine\train.pkl',
-         test_path=r'D:\MultiModalPopularityPrediction\data\baselines_data_vine\test.pkl',
+    main(train_path=r'D:\MultiModalPopularityPrediction\data\baselines_data_NUS\train.pkl',
+         test_path=r'D:\MultiModalPopularityPrediction\data\baselines_data_NUS\test.pkl',
          dataset_id='NUS')

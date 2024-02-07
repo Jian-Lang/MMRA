@@ -5,7 +5,7 @@ from tqdm import tqdm
 
 def load_angle_bert_model():
     angle = AnglE.from_pretrained(
-        r'D:\MultiModalPopularityPrediction\LLM\model\textual_feature_extraction\angle-bert-base-uncased-nli-en-v1',
+        r'D:\MultiModalPopularityPrediction\LLM\model\text_semantic_embedding\UAE-Large-V1',
         pooling_strategy='cls_avg').cuda()
 
     return angle
@@ -19,7 +19,7 @@ def angle_bert_textual_feature_extraction(angle, text):
 
 if __name__ == "__main__":
 
-    df = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\vine\train.pkl')
+    df = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\NUS\train.pkl')
 
     angle = load_angle_bert_model()
 
@@ -38,11 +38,11 @@ if __name__ == "__main__":
 
     df['retrieval_feature_2'] = text_semantic_embedding
 
-    df.to_pickle(r'D:\MultiModalPopularityPrediction\data\vine\train.pkl')
+    df.to_pickle(r'D:\MultiModalPopularityPrediction\data\NUS\train.pkl')
 
     text_semantic_embedding = []
 
-    df = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\vine\valid.pkl')
+    df = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\NUS\valid.pkl')
 
     for i in tqdm(range(len(df))):
         text = df['image_to_text_list'][i]
@@ -57,11 +57,11 @@ if __name__ == "__main__":
 
     df['retrieval_feature_2'] = text_semantic_embedding
 
-    df.to_pickle(r'D:\MultiModalPopularityPrediction\data\vine\valid.pkl')
+    df.to_pickle(r'D:\MultiModalPopularityPrediction\data\NUS\valid.pkl')
 
     text_semantic_embedding = []
 
-    df = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\vine\test.pkl')
+    df = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\NUS\test.pkl')
 
     for i in tqdm(range(len(df))):
         text = df['image_to_text_list'][i]
@@ -76,4 +76,4 @@ if __name__ == "__main__":
 
     df['retrieval_feature_2'] = text_semantic_embedding
 
-    df.to_pickle(r'D:\MultiModalPopularityPrediction\data\vine\test.pkl')
+    df.to_pickle(r'D:\MultiModalPopularityPrediction\data\NUS\test.pkl')
