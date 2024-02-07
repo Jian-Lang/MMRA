@@ -5,6 +5,7 @@ from tqdm import tqdm
 
 
 def compute_normalized_inner_product_similarity(vector1, vector2):
+
     vector1 = np.array(vector1)
 
     vector2 = np.array(vector2)
@@ -17,6 +18,7 @@ def compute_normalized_inner_product_similarity(vector1, vector2):
 
 
 def sort_and_take_top_k(id_list, similarity_list, k):
+
     zipped_lists = list(zip(similarity_list, id_list))
 
     sorted_lists = sorted(zipped_lists, key=lambda x: x[0], reverse=True)
@@ -31,6 +33,7 @@ def sort_and_take_top_k(id_list, similarity_list, k):
 
 
 def retrieve_items(mode, k, train_path, valid_path, test_path):
+
     if mode == 'test':
 
         train_df = pd.read_pickle(train_path)
@@ -48,6 +51,7 @@ def retrieve_items(mode, k, train_path, valid_path, test_path):
         retrieved_item_similarity_list = []
 
         for i in tqdm(range(len(test_df))):
+
             test_vec = test_df['retrieval_feature'][i]
 
             database_matrix = (database_df['retrieval_feature']).tolist()
@@ -134,6 +138,7 @@ def retrieve_items(mode, k, train_path, valid_path, test_path):
 
 
 def main(mode, k, train_path, valid_path, test_path):
+
     if mode == 'test':
 
         test_df = pd.read_pickle(test_path)
@@ -184,6 +189,7 @@ def main(mode, k, train_path, valid_path, test_path):
 
 
 def stack_retrieved_feature(train_path, valid_path, test_path):
+
     df_train = pd.read_pickle(train_path)
 
     df_test = pd.read_pickle(test_path)
@@ -215,6 +221,7 @@ def stack_retrieved_feature(train_path, valid_path, test_path):
         current_retrieved_label_list = []
 
         for j in range(len(id_list)):
+
             item_id = id_list[j]
 
             index = df_database[df_database['item_id'] == item_id].index[0]
@@ -268,6 +275,7 @@ def stack_retrieved_feature(train_path, valid_path, test_path):
         current_retrieved_label_list = []
 
         for j in range(len(id_list)):
+
             item_id = id_list[j]
 
             index = df_database[df_database['item_id'] == item_id].index[0]
@@ -356,12 +364,12 @@ def stack_retrieved_feature(train_path, valid_path, test_path):
 
 if __name__ == "__main__":
 
-    train_path = r'D:\MultiModalPopularityPrediction\data\vine\train.pkl'
+    train_path = r'D:\MultiModalPopularityPrediction\data\NUS\train.pkl'
 
-    valid_path = r'D:\MultiModalPopularityPrediction\data\vine\valid.pkl'
+    valid_path = r'D:\MultiModalPopularityPrediction\data\NUS\valid.pkl'
 
-    test_path = r'D:\MultiModalPopularityPrediction\data\vine\test.pkl'
+    test_path = r'D:\MultiModalPopularityPrediction\data\NUS\test.pkl'
 
-    main('train', 10, train_path, valid_path, test_path)
+    main('train', 20, train_path, valid_path, test_path)
 
     stack_retrieved_feature(train_path, valid_path, test_path)
