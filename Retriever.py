@@ -4,10 +4,12 @@ from sklearn.metrics.pairwise import cosine_similarity
 from tqdm import tqdm
 
 
-def compute_cosine_similarity(vector1, vector2):
+def compute_normalized_inner_product_similarity(vector1, vector2):
     vector1 = np.array(vector1)
 
     vector2 = np.array(vector2)
+    
+    # Here the consine similarity is the normalized inner product between two vectors.
 
     similarity = cosine_similarity([vector1], vector2)
 
@@ -50,7 +52,7 @@ def retrieve_items(mode, k, train_path, valid_path, test_path):
 
             database_matrix = (database_df['retrieval_feature']).tolist()
 
-            similarity_list = compute_cosine_similarity(test_vec, database_matrix)
+            similarity_list = compute_normalized_inner_product_similarity(test_vec, database_matrix)
 
             id_list = (database_df['item_id']).tolist()
 
@@ -84,7 +86,7 @@ def retrieve_items(mode, k, train_path, valid_path, test_path):
 
             database_matrix = (current_database_df['retrieval_feature']).tolist()
 
-            similarity_list = compute_cosine_similarity(valid_vec, database_matrix)
+            similarity_list = compute_normalized_inner_product_similarity(valid_vec, database_matrix)
 
             id_list = (current_database_df['item_id']).tolist()
 
@@ -118,7 +120,7 @@ def retrieve_items(mode, k, train_path, valid_path, test_path):
 
             database_matrix = (current_database_df['retrieval_feature_2']).tolist()
 
-            similarity_list = compute_cosine_similarity(train_vec, database_matrix)
+            similarity_list = compute_normalized_inner_product_similarity(train_vec, database_matrix)
 
             id_list = (current_database_df['item_id']).tolist()
 
