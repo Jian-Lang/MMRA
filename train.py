@@ -328,7 +328,7 @@ if __name__ == '__main__':
 
     parser.add_argument('--optim', type=str, default='Adam', help='Optimizer for training')
 
-    parser.add_argument('--lr', type=float, default=1e-4, help='Learning rate')
+    parser.add_argument('--lr', type=float, default=1e-5, help='Learning rate')
 
     parser.add_argument('--dataset_id', type=str, default='MicroLens-100k', help='Dataset identifier')
 
