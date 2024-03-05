@@ -89,7 +89,7 @@ The detailed descriptions about the important arguments are as following:
 |         alpha          | float | Positive Negative balanced parameter alpha, default is 0.6.  |
 | num_of_retrieved_items |  int  |         Number of retrieved items, hyper-parameter.          |
 |       frame_num        |  int  |              Number of frames, hyper-parameter               |
-|           lr           | float |   Learning rate, in this work, its default fault is 1e-5.    |
+|           lr           | float | Learning rate, in this work, its default fault is 1e-4 for dataset NUS and 1e-5 for dataset MicroLens . |
 
 
 
