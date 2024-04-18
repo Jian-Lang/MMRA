@@ -29,15 +29,3 @@ class ContextualLSTM(nn.Module):
 
         return output
 
-
-if __name__ == "__main__":
-
-    textual_input = torch.rand(100, 10, 768)
-
-    visual_input = torch.rand(100, 1, 768)
-
-    label = torch.rand(100, 1)
-
-    model = ContextualLSTM(768, 768, 256, 1)
-
-    output = model(x_text=textual_input, x_visual=visual_input)

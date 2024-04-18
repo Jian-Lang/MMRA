@@ -39,14 +39,4 @@ class MyData(torch.utils.data.Dataset):
         return len(self.dataframe)
 
 
-if __name__ == "__main__":
 
-    dataset = MyData(r'D:\MultiModalPopularityPrediction\data\MicroLens-100k\valid.pkl')
-
-    dataloader = torch.utils.data.DataLoader(dataset, batch_size=64, collate_fn=custom_collate_fn)
-
-    for batch in dataloader:
-        visual_feature_embedding, textual_feature_embedding, retrieved_visual_feature_embedding, \
-            retrieved_textual_feature_embedding, retrieved_label, label = batch
-
-        print()

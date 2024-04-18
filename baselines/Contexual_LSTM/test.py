@@ -154,15 +154,15 @@ def main():
 
     parser.add_argument('--batch_size', default=256, type=int, help='training batch size')
 
-    parser.add_argument('--dataset_id', default='MicroLens100k', type=str, help='id of dataset')
+    parser.add_argument('--dataset_id', default='MicroLens-100k', type=str, help='id of dataset')
 
-    parser.add_argument('--dataset_path', default=r'D:\MultiModalPopularityPrediction\data', type=str,
+    parser.add_argument('--dataset_path', default=r'data', type=str,
                         help='path of dataset folder')
 
     parser.add_argument('--model_id', default='Contextual_LSTM', type=str, help='id of model')
 
     parser.add_argument('--model_path',
-                        default=r'D:\MultiModalPopularityPrediction\baselines\Contexual_LSTM\train_results\train_Contextual_LSTM_MicroLens-100k_MSE_2024-01-23_11-07-49\trained_model\model_12.pth',
+                        default=r'',
                         type=str, help='path of trained model')
 
     args = parser.parse_args()

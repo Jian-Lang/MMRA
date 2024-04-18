@@ -7,7 +7,7 @@ from tqdm import tqdm
 
 def loading_model():
 
-    local_model_path = r"D:\MultiModalPopularityPrediction\LLM\model\text_semantic_embedding\UAE-Large-V1"
+    local_model_path = r"UAE-Large-V1"
 
     angle = AnglE.from_pretrained(local_model_path, pooling_strategy='cls').cuda()
 
@@ -22,27 +22,3 @@ def convert_text_to_embedding(angle, text):
 
     return vec
 
-
-if __name__ == "__main__":
-
-    df = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\MicroLens-100k\data.pkl')
-
-    angle = loading_model()
-
-    text_semantic_embedding = []
-
-    for i in tqdm(range(len(df))):
-
-        text = df['image_to_text_list'][i]
-
-        text = '[SEP]'.join(text)
-
-        text = df['text'][i] + '[SEP]' + text
-
-        vec = ((convert_text_to_embedding(angle, text)).tolist())[0]
-
-        text_semantic_embedding.append(vec)
-
-    df['retrieval_feature'] = text_semantic_embedding
-
-    df.to_pickle(r'D:\MultiModalPopularityPrediction\data\MicroLens-100k\data.pkl')

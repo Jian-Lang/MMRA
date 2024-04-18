@@ -7,11 +7,11 @@ from pytorch_tabnet.tab_model import TabNetRegressor
 
 
 def main(alpha_lgbm, alpha_tabnet):
-    train_data = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\baselines_data_NUS\train.pkl')
+    train_data = pd.read_pickle(r'train.pkl')
 
-    valid_data = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\baselines_data_NUS\valid.pkl')
+    valid_data = pd.read_pickle(r'valid.pkl')
 
-    test_data = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\baselines_data_NUS\test.pkl')
+    test_data = pd.read_pickle(r'test.pkl')
 
     visual_feature_train = np.array(train_data['visual_feature_embedding_cls'].tolist())
 
@@ -75,11 +75,6 @@ def main(alpha_lgbm, alpha_tabnet):
 
     print(f"Normalized Mean Squared Error on Test Set: {nMSE}")
 
-    item_id = test_data['item_id'].tolist()
-
-    df = pd.DataFrame({'item_id': item_id, 'label': Y_test.tolist(), 'output': Y_pred.tolist()})
-
-    df.to_excel('nus_case_study_MFTM.xlsx', index=False)
 
 
 if __name__ == "__main__":

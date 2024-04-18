@@ -8,7 +8,7 @@ from dataset import MyData, custom_collate_fn
 
 
 def main():
-    train_data = MyData(r'D:\MultiModalPopularityPrediction\data\tmall_NUS\train.pkl')
+    train_data = MyData(r'train.pkl')
 
     train_loader = torch.utils.data.DataLoader(train_data, batch_size=64, collate_fn=custom_collate_fn)
 

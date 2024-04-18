@@ -7,7 +7,8 @@ from transformers import BlipProcessor, BlipForConditionalGeneration
 
 
 def loading_model():
-    local_path = r"D:\MultiModalPopularityPrediction\LLM\model\image_to_text\BLIP"
+
+    local_path = r"BLIP"
 
     processor = BlipProcessor.from_pretrained(local_path)
 
@@ -42,36 +43,3 @@ def process_row(item_id, path, processor, model):
         current_text_list.append(text)
 
     return current_text_list
-
-
-if __name__ == "__main__":
-
-    df = pd.read_pickle(r'D:\MultiModalPopularityPrediction\data\MicroLens-100k\data.pkl')
-
-    processor, model = loading_model()
-
-    image_to_text_list = []
-
-    path = r'D:\MultiModalPopularityPrediction\data\MicroLens-100k\video_frames'
-
-    with ThreadPoolExecutor() as executor:
-
-        futures = []
-
-        for i in tqdm(range(len(df)), desc="Processing Rows"):
-
-            current_id = df['item_id'][i]
-
-            future = executor.submit(process_row, current_id, path, processor, model)
-
-            futures.append(future)
-
-        for future, i in tqdm(zip(futures, range(len(df))), total=len(df), desc="Processing Images"):
-
-            current_text_list = future.result()
-
-            image_to_text_list.append(current_text_list)
-
-    df['image_to_text_list'] = image_to_text_list
-
-    df.to_pickle(r'D:\MultiModalPopularityPrediction\data\MicroLens-100k\data.pkl')

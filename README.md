@@ -1,22 +1,17 @@
-# MMRA：Multi-Modal Retrieval-Augmented micro-video popularity prediction framework 
+# MMRA：Predicting Micro-video Popularity via Multi-modal Retrieval Augmentation
 
-In this repository, we provide source code of MMRA framework for reproductivity.
+> In this repository, we provide source code of MMRA framework for reproductivity. 🚀🚀🚀
+>
 
 
 
 ## Dataset
 
-We conducted extensive experiments on two real-world micro-video datasets.
+We conducted extensive experiments on a real-world micro-video dataset.
 
 ### MicroLens
 
 MicroLens consists of 19,738 unique micro-videos posted from 100000 users, sourced from various popular online video platforms. This is the link of the original dataset: https://github.com/westlake-repl/MicroLens
-
-### NUS
-
-NUS  is collected from the micro-video platform Vine. It records 169,103 different micro-videos posted by 11,084 users from July 2015 to October 2015. This is the link of the original dataset: https://acmmm2016.wixsite.com/micro-videos
-
-We have published the preprocessed datasets in our paper. 
 
 
 
@@ -80,16 +75,16 @@ The detailed descriptions about the important arguments are as following:
 
 |     Parameter name     | Type  |                         Description                          |
 | :--------------------: | :---: | :----------------------------------------------------------: |
-|       dataset_id       |  str  | The dataset id can be selected from ["MicroLens-100k", "NUS"]. |
+|       dataset_id       |  str  |         The dataset id, default is "MicroLens-100k".         |
 |          save          |  str  |                  Directory to save results.                  |
 |          loss          |  str  |      Loss function used in training, default is "MSE".       |
 |      feature_num       |  int  |          Number of kinds of features, default is 2.          |
 |      feature_dim       |  int  |           The dimension of embedding of features.            |
 |       label_dim        |  int  |            The dimension of label, default is 1.             |
-|         alpha          | float | Positive Negative balanced parameter alpha, default is 0.6.  |
+|         alpha          | float | Positive Negative attention balanced parameter alpha, default is 0.6. |
 | num_of_retrieved_items |  int  |         Number of retrieved items, hyper-parameter.          |
-|       frame_num        |  int  |              Number of frames, hyper-parameter               |
-|           lr           | float | Learning rate, in this work, its default fault is 1e-4 for dataset NUS and 1e-5 for dataset MicroLens . |
+|       frame_num        |  int  |              Number of frames, hyper-parameter.              |
+|           lr           | float |   Learning rate, in this work, its default valud is 1e-5 .   |
 
 
 
@@ -111,14 +106,9 @@ MMRA
 │   ├── MicroLens-100k
 │	│	 ├── data_preprocess
 │	│	 ├── retrieval_preprocess
-│   └── NUS
-│		 ├──data_preprocess
-│		 └──retrieval_preprocess
 ├── dataloader  # dataloader for training, validation and test
 │   ├── MicroLens
 │	│	 ├── dataset.py 
-│   └── NUS
-│		 └── dataset.py
 ├── feature_engineering  # feature engineering source code
 │   ├── textual_engineering.py 
 │   ├── visual_engineering.py 
@@ -126,10 +116,25 @@ MMRA
 ├── model  # code of MMRA
 │   ├── MicroLens
 │	│	 ├── MMRA.py 
-│   └── NUS
-│		 └── MMRA.py 
 ├── Retriever.py # code of Retriever used in MMRA
 ├── train.py  # entry for model training,validation
 ├── test.py  # entry for model test
 └── README.md  # This file
 ```
+
+
+
+## Citation
+
+If you find the code useful for your research, please consider citing
+
+```latex
+@inproceedings{ting2024predicting,
+  title = {Predicting Micro-video Popularity via Multi-modal Retrieval Augmentation},
+  author = {Ting, Zhong and Jian, Lang and Yifan, Zhang and Zhangtao, Cheng and Kunpeng, Zhang and Fan, Zhou},
+  booktitle = {Proceedings of the 47th ACM SIGIR Conference on Research and Development in Information Retrieval},
+  year = {2024}
+}
+```
+
+If you have any questions about this code or the paper, feel free to contact us:  jian_lang@std.uestc.edu.cn

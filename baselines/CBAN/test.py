@@ -2,8 +2,6 @@ import argparse
 import os
 from datetime import datetime
 import logging
-
-import pandas as pd
 import torch
 from torch.utils.data import DataLoader
 from tqdm import tqdm
@@ -119,16 +117,6 @@ def test(args):
 
             label = label.to('cpu')
 
-            output_save = output.squeeze(1).tolist()
-
-            label_save = label.squeeze(1).tolist()
-
-            item_id_save = list(item_id)
-
-            df = pd.DataFrame({'item_id': item_id_save, 'label': label_save, 'output': output_save})
-
-            df.to_excel('nus_case_study_CBAN.xlsx', index=False)
-
             output = np.array(output)
 
             label = np.array(label)
@@ -166,15 +154,15 @@ def main():
 
     parser.add_argument('--batch_size', default=256, type=int, help='training batch size')
 
-    parser.add_argument('--dataset_id', default='baselines_data_NUS', type=str, help='id of dataset')
+    parser.add_argument('--dataset_id', default='MicroLens-100k', type=str, help='id of dataset')
 
-    parser.add_argument('--dataset_path', default=r'D:\MultiModalPopularityPrediction\data', type=str,
+    parser.add_argument('--dataset_path', default=r'data', type=str,
                         help='path of dataset folder')
 
     parser.add_argument('--model_id', default='CBAN', type=str, help='id of model')
 
     parser.add_argument('--model_path',
-                        default=r'D:\MultiModalPopularityPrediction\baselines\CBAN-Add\train_results\train_CBAN-Add_baselines_data_NUS_MSE_2024-01-22_10-11-31\trained_model\model_6.pth',
+                        default=r'',
                         type=str, help='path of trained model')
 
     args = parser.parse_args()

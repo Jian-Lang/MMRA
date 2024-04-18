@@ -103,18 +103,5 @@ class HMMVED(nn.Module):
         return output
 
 
-if __name__ == "__main__":
-    batch_size = 8
 
-    frame_num = 10
-
-    feature_size = 768
-
-    visual_feature = torch.randn(batch_size, frame_num, feature_size)
-
-    text_feature = torch.randn(batch_size, feature_size)
-
-    model = HMMVED(feature_size=feature_size, latent_size=50)
-
-    output = model(visual_feature, text_feature)
 

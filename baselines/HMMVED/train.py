@@ -276,10 +276,10 @@ def main():
 
     parser.add_argument('--lr', default=1e-4, type=float, help='learning rate')
 
-    parser.add_argument('--dataset_id', default='baselines_data_NUS', type=str,
+    parser.add_argument('--dataset_id', default='MicroLens-100k', type=str,
                         help='id of dataset, options: MicroLens100k, NUS')
 
-    parser.add_argument('--dataset_path', default=r'D:\MultiModalPopularityPrediction\data', type=str,
+    parser.add_argument('--dataset_path', default=r'data', type=str,
                         help='path of dataset')
 
     parser.add_argument('--model_id', default='HMMVED', type=str, help='id of model')

@@ -14,7 +14,7 @@ def extract_frames(input_video, input_video_id, k):
 
     samples = [int(i) for i in samples]
 
-    output_folder = r'D:\MultiModalPopularityPrediction\data\MicroLens-100k\video_frames_5001-10000'
+    output_folder = r'data\MicroLens-100k\video_frames'
 
     os.makedirs(output_folder, exist_ok=True)
 
@@ -47,7 +47,7 @@ def extract_frames(input_video, input_video_id, k):
 
 if __name__ == '__main__':
 
-    path = r'D:\MultiModalPopularityPrediction\data\MicroLens-100k\init_data\video\video1-5000\video'
+    path = r'data\MicroLens-100k\video'
 
     files = os.listdir(path)
 

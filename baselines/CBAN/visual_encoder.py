@@ -17,11 +17,3 @@ class VisualEncoder(torch.nn.Module):
         transformer_output = transformer_output[:, -1, :]
 
         return transformer_output
-
-
-if __name__ == '__main__':
-    transformer_model = VisualEncoder(input_size=256)
-
-    video_features = torch.rand((32, 10, 256))
-
-    output_transformer = transformer_model(video_features, mode='target')

@@ -47,6 +47,6 @@ def main(train_path, test_path, dataset_id):
 
 
 if __name__ == "__main__":
-    main(train_path=r'D:\MultiModalPopularityPrediction\data\baselines_data_NUS\train.pkl',
-         test_path=r'D:\MultiModalPopularityPrediction\data\baselines_data_NUS\test.pkl',
-         dataset_id='NUS')
+    main(train_path=r'train.pkl',
+         test_path=r'test.pkl',
+         dataset_id='MicroLens-100k')

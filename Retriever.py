@@ -364,12 +364,16 @@ def stack_retrieved_feature(train_path, valid_path, test_path):
 
 if __name__ == "__main__":
 
-    train_path = r'D:\MultiModalPopularityPrediction\data\NUS\train.pkl'
+    train_path = r'train.pkl'
 
-    valid_path = r'D:\MultiModalPopularityPrediction\data\NUS\valid.pkl'
+    valid_path = r'valid.pkl'
 
-    test_path = r'D:\MultiModalPopularityPrediction\data\NUS\test.pkl'
+    test_path = r'test.pkl'
 
     main('train', 20, train_path, valid_path, test_path)
+
+    main('valid', 20, train_path, valid_path, test_path)
+
+    main('test', 20, train_path, valid_path, test_path)
 
     stack_retrieved_feature(train_path, valid_path, test_path)

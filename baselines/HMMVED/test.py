@@ -154,15 +154,15 @@ def main():
 
     parser.add_argument('--batch_size', default=256, type=int, help='training batch size')
 
-    parser.add_argument('--dataset_id', default='baselines_data_NUS', type=str, help='id of dataset')
+    parser.add_argument('--dataset_id', default='MicroLens-100k', type=str, help='id of dataset')
 
-    parser.add_argument('--dataset_path', default=r'D:\MultiModalPopularityPrediction\data', type=str,
+    parser.add_argument('--dataset_path', default=r'data', type=str,
                         help='path of dataset folder')
 
     parser.add_argument('--model_id', default='HMMVED', type=str, help='id of model')
 
     parser.add_argument('--model_path',
-                        default=r'D:\MultiModalPopularityPrediction\baselines\HMMVED\train_results\train_HMMVED_baselines_data_NUS_MSE_2024-01-21_20-29-09\trained_model\model_3.pth',
+                        default=r'',
                         type=str, help='path of trained model')
 
     args = parser.parse_args()
