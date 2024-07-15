@@ -3,6 +3,8 @@
 > In this repository, we provide source code of MMRA framework for reproductivity. 🚀🚀🚀
 >
 
+![MMRA](pics/MMRA.jpg)
+
 
 
 ## Dataset
@@ -129,9 +131,9 @@ MMRA
 If you find the code useful for your research, please consider citing
 
 ```latex
-@inproceedings{ting2024predicting,
+@inproceedings{zhong2024predicting,
   title = {Predicting Micro-video Popularity via Multi-modal Retrieval Augmentation},
-  author = {Ting, Zhong and Jian, Lang and Yifan, Zhang and Zhangtao, Cheng and Kunpeng, Zhang and Fan, Zhou},
+  author = {Zhong, Ting and Lang, Jian and Zhang, Yifan and Cheng, Zhangtao and Zhang, Kunpeng and Zhou, Fan},
   booktitle = {Proceedings of the 47th ACM SIGIR Conference on Research and Development in Information Retrieval},
   year = {2024}
 }
